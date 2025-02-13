@@ -1,0 +1,107 @@
+body {
+    font-family: 'Sour Gummy', cursive;
+    background-color: #ffebf0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #d32f2f;
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.heart-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s, box-shadow 0.2s ease;
+    animation: pulse 2s infinite;
+    background-color: transparent;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #ff4d6d;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart:active {
+    transform: scale(1.05);
+}
+
+#clickInstruction {
+    font-size: 1.2rem;
+    color: #d32f2f;
+    margin-top: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#loveMessage {
+    font-size: 1.5rem;
+    color: #d32f2f;
+    animation: slideIn 1s ease-in-out;
+}
+
+video {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fillHeart {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
