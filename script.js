@@ -60,7 +60,16 @@ function showPopup() {
     setTimeout(() => {
         const userResponse = confirm("Makasih udah nonton sampe abis sayang! Mau lanjut dengerin playlist buatanku nda? 💖");
         if (userResponse) {
-            window.location.href = "https://open.spotify.com/playlist/7Ch5U1DDyEQcXO80CMOl59?si=65eca6e922704acd&pt=8dfe5a48b4950f5ab3d91e76f9293eb4"; // Ganti dengan link playlist Spotify-mu
+            const playlistUrl = "https://open.spotify.com/playlist/7Ch5U1DDyEQcXO80CMOl59?si=65eca6e922704acd&pt=8dfe5a48b4950f5ab3d91e76f9293eb4";
+            const spotifyAppUrl = "spotify://playlist/7Ch5U1DDyEQcXO80CMOl59";
+
+            // Cek jika aplikasi Spotify bisa dibuka
+            window.location.href = spotifyAppUrl;
+
+            // Jika gagal (biasanya di browser), fallback ke link web
+            setTimeout(() => {
+                window.location.href = playlistUrl;
+            }, 500);
         }
     }, 1000); // Delay sedikit biar tidak terlalu mendadak
 }
